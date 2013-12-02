@@ -21,7 +21,7 @@ RUN pip uninstall -y PIL
 RUN pip install Pillow
 
 ADD circus.ini /etc/circus.ini
-ADD tilestache.cfg /etc/tilestache.cfg
+ADD tilestache.cfg /etc/tilestache/tilestache.cfg
 ADD app.py /app.py
 
 EXPOSE 9999
