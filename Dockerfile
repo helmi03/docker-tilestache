@@ -6,7 +6,7 @@ FROM ubuntu:12.04
 
 MAINTAINER Helmi <helmi03@gmail.com>
 
-RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list
+RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe multiverse" > /etc/apt/sources.list
 RUN apt-get update
 RUN apt-get install -y -q python-software-properties python-pip libzmq-dev
 RUN add-apt-repository -y ppa:mapnik/v2.2.0
@@ -19,6 +19,7 @@ RUN pip install circus chaussette gevent
 # http://obroll.com/install-python-pil-python-image-library-on-ubuntu-11-10-oneiric/
 RUN pip uninstall -y PIL
 RUN pip install Pillow
+RUN yes | apt-get install -y ttf-mscorefonts-installer
 
 ADD circus.ini /etc/circus.ini
 ADD tilestache.cfg /etc/tilestache/tilestache.cfg
