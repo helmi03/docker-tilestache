@@ -25,6 +25,7 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 ADD circus.ini /etc/circus.ini
 ADD tilestache.cfg /etc/tilestache/tilestache.cfg
 ADD app.py /app.py
+ADD start_tilestache.sh /usr/local/bin/start_tilestache
 
 EXPOSE 9999
 
@@ -32,4 +33,4 @@ EXPOSE 9999
 #! ADD circus.cont /etc/init/circus.conf
 #! CMD ["start", "circus"]
 
-CMD ["circusd", "/etc/circus.ini"]
+CMD ["start_tilestache"]
