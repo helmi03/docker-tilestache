@@ -20,6 +20,7 @@ RUN pip install circus chaussette gevent
 RUN pip uninstall -y PIL
 RUN pip install Pillow
 RUN yes | apt-get install -y ttf-mscorefonts-installer
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 ADD circus.ini /etc/circus.ini
 ADD tilestache.cfg /etc/tilestache/tilestache.cfg
